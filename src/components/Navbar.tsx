@@ -1,4 +1,4 @@
-import logo from "../assets/logo.svg"
+import logo from "../assets/full_logo.svg"
 
 interface NavbarProps{
     className? : string
@@ -6,9 +6,8 @@ interface NavbarProps{
 
 const Navbar = (props: NavbarProps) => {
     return(
-        <div className={`${props.className} gap-2 px-10 py-6`}>
-            <img width= "100px" src={logo} alt="" />
-            <p className=" text-2xl">Almacenes Manolo</p>
+        <div className={`${props.className} gap-4 px-10 pt-6`}>
+            <img width= "400px" src={logo} alt="" />
         </div>
     )
 }
