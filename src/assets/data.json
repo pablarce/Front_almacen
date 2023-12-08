@@ -3,60 +3,60 @@
     "id": "D074",
     "product": "FOOTBALL",
     "stock": 100,
-    "price": "36"
+    "price": 36
   },
   {
     "id": "A123",
     "stock": 50,
     "product": "BASKETBALL",
-    "price": "25"
+    "price": 25
   },
   {
     "id": "B456",
     "stock": 75,
     "product": "SOCCER BALL",
-    "price": "18"
+    "price": 18
   },
   {
     "id": "C789",
     "stock": 120,
     "product": "TENNIS RACKET",
-    "price": "50"
+    "price": 50
   },
   {
     "id": "E012",
     "stock": 200,
     "product": "RUNNING SHOES",
-    "price": "65"
+    "price": 65
   },
   {
     "id": "F345",
     "stock": 90,
     "product": "GOLF CLUB",
-    "price": "75"
+    "price": 75
   },
   {
     "id": "G678",
     "stock": 30,
     "product": "SWIMMING GOGGLES",
-    "price": "12"
+    "price": 12
   },
   {
     "id": "H901",
     "stock": 150,
     "product": "BASEBALL GLOVE",
-    "price": "40"
+    "price": 40
   },
   {
     "id": "I234",
     "stock": 80,
     "product": "HIKING BOOTS",
-    "price": "55"
+    "price": 55
   },
   {
     "id": "J567",
     "stock": 110,
     "product": "CYCLING HELMET",
-    "price": "30"
+    "price": 30
   }
 ]
