@@ -1,0 +1,73 @@
+[
+    {
+      "id": "D074",
+      "stock": 100,
+      "status": "available",
+      "product": "football",
+      "price": "36"
+    },
+    {
+      "id": "A123",
+      "stock": 50,
+      "status": "available",
+      "product": "basketball",
+      "price": "25"
+    },
+    {
+      "id": "B456",
+      "stock": 75,
+      "status": "out_of_stock",
+      "product": "soccer ball",
+      "price": "18"
+    },
+    {
+      "id": "C789",
+      "stock": 120,
+      "status": "available",
+      "product": "tennis racket",
+      "price": "50"
+    },
+    {
+      "id": "E012",
+      "stock": 200,
+      "status": "available",
+      "product": "running shoes",
+      "price": "65"
+    },
+    {
+      "id": "F345",
+      "stock": 90,
+      "status": "available",
+      "product": "golf club",
+      "price": "75"
+    },
+    {
+      "id": "G678",
+      "stock": 30,
+      "status": "out_of_stock",
+      "product": "swimming goggles",
+      "price": "12"
+    },
+    {
+      "id": "H901",
+      "stock": 150,
+      "status": "available",
+      "product": "baseball glove",
+      "price": "40"
+    },
+    {
+      "id": "I234",
+      "stock": 80,
+      "status": "available",
+      "product": "hiking boots",
+      "price": "55"
+    },
+    {
+      "id": "J567",
+      "stock": 110,
+      "status": "available",
+      "product": "cycling helmet",
+      "price": "30"
+    }
+]
+  
