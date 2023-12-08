@@ -58,5 +58,65 @@
     "stock": 110,
     "product": "CYCLING HELMET",
     "price": 30
+  },
+  {
+    "id": "K890",
+    "stock": 60,
+    "product": "VOLLEYBALL",
+    "price": 28
+  },
+  {
+    "id": "L123",
+    "stock": 85,
+    "product": "SKI POLES",
+    "price": 42
+  },
+  {
+    "id": "M456",
+    "stock": 95,
+    "product": "ROLLERBLADES",
+    "price": 60
+  },
+  {
+    "id": "N789",
+    "stock": 130,
+    "product": "YOGA MAT",
+    "price": 20
+  },
+  {
+    "id": "O012",
+    "stock": 180,
+    "product": "PING PONG PADDLE",
+    "price": 15
+  },
+  {
+    "id": "P345",
+    "stock": 70,
+    "product": "WEIGHT LIFTING GLOVES",
+    "price": 35
+  },
+  {
+    "id": "Q678",
+    "stock": 40,
+    "product": "JUMP ROPE",
+    "price": 10
+  },
+  {
+    "id": "R901",
+    "stock": 120,
+    "product": "SURFBOARD",
+    "price": 80
+  },
+  {
+    "id": "S234",
+    "stock": 55,
+    "product": "CLIMBING HARNESS",
+    "price": 50
+  },
+  {
+    "id": "T567",
+    "stock": 105,
+    "product": "FOOTBALL HELMET",
+    "price": 45
   }
 ]

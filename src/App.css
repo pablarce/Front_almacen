@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 2px;
+  }
+  
+  .text-stroke {
+    -webkit-text-stroke: 0.5px; 
+    -webkit-text-stroke-color: #343a40; 
+  }
+  
+  ::-webkit-scrollbar-track {
+    margin-inline: 0.3em;
+    margin-block: 0.3em;
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 100vw;
+    background: #a5a8aa;
+  }
