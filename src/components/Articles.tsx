@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {
     ColumnDef,
     ColumnFiltersState,
@@ -12,6 +12,7 @@ import {
 import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 
 import data from "../assets/data.json"
+import logo from "../assets/logo.svg"
 import { Button } from "../components/ui/button"
 import { Checkbox } from "../components/ui/checkbox"
 import {
@@ -127,9 +128,14 @@ const columns: ColumnDef<Product>[] = [
 ]
 
 const Articles = (props: ArticleProps) => {
+    const [idProductPulsed, setidProductPulsed] = useState<string>("")
     const [sorting, setSorting] = useState<SortingState>([])
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
     const [rowSelection, setRowSelection] = useState({})
+
+    useEffect(() => {
+        console.log(idProductPulsed)
+    }, [idProductPulsed])
 
     const table = useReactTable({
         data,
@@ -177,9 +183,16 @@ const Articles = (props: ArticleProps) => {
                     {table.getRowModel().rows?.length ? (
                         table.getRowModel().rows.map((row) => (
                             <TableRow
-                                className="hover:bg-slate-200"
+                                className={`${
+                                    idProductPulsed === row.original.id
+                                        ? "bg-slate-300 hover:bg-slate-300"
+                                        : "hover:bg-slate-200"
+                                }`}
                                 key={row.id}
                                 data-state={row.getIsSelected() && "selected"}
+                                onClick={() => {
+                                    setidProductPulsed(row.original.id)
+                                }}
                             >
                                 {row.getVisibleCells().map((cell) => (
                                     <TableCell key={cell.id}>
@@ -190,8 +203,11 @@ const Articles = (props: ArticleProps) => {
                         ))
                     ) : (
                         <TableRow>
-                            <TableCell colSpan={columns.length} className="h-24 text-center">
-                                No results.
+                            <TableCell colSpan={columns.length} className="h-24 ">
+                                <div className="flex flex-col justify-center items-center text-center">
+                                    <img src={logo} className="w-32" alt="hola" />
+                                    <p>No hay nada por aqui.</p>
+                                </div>
                             </TableCell>
                         </TableRow>
                     )}
