@@ -1,9 +1,9 @@
-interface BillProps{
-    className? : string
+interface BillProps {
+    className?: string
 }
 
 const Bill = (props: BillProps) => {
-    return(
+    return (
         <div className={`${props.className}`}>
             <p className="text-2xl">Factura</p>
         </div>
