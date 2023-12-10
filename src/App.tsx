@@ -5,7 +5,7 @@ import inventoryData from "./assets/data"
 import "./App.css"
 
 import Articles from "./components/Articles"
-import Bill from "./components/Bill"
+import Bill from "./components/Log"
 import Navbar from "./components/Navbar"
 import Product from "./components/Product"
 

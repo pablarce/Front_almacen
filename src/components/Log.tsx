@@ -2,12 +2,12 @@ interface BillProps {
     className?: string
 }
 
-const Bill = (props: BillProps) => {
+const Log = (props: BillProps) => {
     return (
         <div className={`${props.className}`}>
-            <p className="text-2xl">Factura</p>
+            <p className="text-2xl">Log</p>
         </div>
     )
 }
 
-export default Bill
+export default Log

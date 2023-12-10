@@ -9,7 +9,7 @@ import {
     SortingState,
     useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, MoreHorizontal } from "lucide-react"
+import { ArrowUpDown, BadgePlus, MoreHorizontal, Trash2Icon } from "lucide-react"
 
 import logo from "../assets/logo.svg"
 import { Button } from "../components/ui/button"
@@ -157,13 +157,19 @@ const Articles = (props: ArticleProps) => {
 
     return (
         <div className={`${props.className}`}>
-            <div className="flex items-center py-4">
+            <div className="flex items-center gap-8 py-4">
                 <Input
                     placeholder="Filter products..."
                     value={(table.getColumn("product")?.getFilterValue() as string) ?? ""}
                     onChange={(event) => table.getColumn("product")?.setFilterValue(event.target.value)}
                     className="max-w-sm rounded-xl border border-gray-400"
                 />
+                <div className="hover:cursor-pointer hover:bg-gray-200 p-2 rounded-xl ">
+                    <BadgePlus />
+                </div>
+                <div className="hover:cursor-pointer hover:bg-gray-200 p-2 rounded-xl">
+                    <Trash2Icon />
+                </div>
             </div>
             <Table>
                 <TableHeader>
