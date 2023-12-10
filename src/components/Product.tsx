@@ -7,12 +7,12 @@ interface ProductProps {
 
 const Product = (props: ProductProps) => {
     return (
-        <div className={`${props.className}`}>
-            <p className="text-2xl">FOOTBALL</p>
-            <div className="flex items-center justify-center">
+        <div className={`${props.className} overflow-clip p-6`}>
+            <p className="text-4xl">FOOTBALL</p>
+            <div className="flex h-96 items-center justify-center">
                 <Dumbbell className="mr-auto w-60 h-60" />
             </div>
-            <p className="mt-auto">{props.idProductPulsed}</p>
+            <p className="">Id del producto: {props.idProductPulsed}</p>
         </div>
     )
 }

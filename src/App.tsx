@@ -27,7 +27,7 @@ function App() {
     }, [screenHeight])
 
     return (
-        <div className=" overflow-hidden">
+        <div className="bg-gray-900  overflow-hidden">
             <Navbar dataFont={dataFont} setDataFont={setDataFont} className="flex items-center h-40" />
             <div
                 style={{ height: `${screenHeight - 160}px` }}
