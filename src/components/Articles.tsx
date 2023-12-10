@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import {
     ColumnDef,
     ColumnFiltersState,
@@ -33,6 +33,8 @@ type Product = {
 }
 
 interface ArticleProps {
+    idProductPulsed: string
+    setIdProductPulsed: React.Dispatch<React.SetStateAction<string>>
     data: Product[]
     className?: string
 }
@@ -133,14 +135,9 @@ const columns: ColumnDef<Product>[] = [
 
 const Articles = (props: ArticleProps) => {
     const data = props.data
-    const [idProductPulsed, setidProductPulsed] = useState<string>("")
     const [sorting, setSorting] = useState<SortingState>([])
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
     const [rowSelection, setRowSelection] = useState({})
-
-    useEffect(() => {
-        console.log(idProductPulsed)
-    }, [idProductPulsed])
 
     const table = useReactTable({
         data,
@@ -189,14 +186,14 @@ const Articles = (props: ArticleProps) => {
                         table.getRowModel().rows.map((row) => (
                             <TableRow
                                 className={`${
-                                    idProductPulsed === row.original.id
+                                    props.idProductPulsed === row.original.id
                                         ? "bg-slate-300 hover:bg-slate-300"
                                         : "hover:bg-slate-200"
                                 }`}
                                 key={row.id}
                                 data-state={row.getIsSelected() && "selected"}
                                 onClick={() => {
-                                    setidProductPulsed(row.original.id)
+                                    props.setIdProductPulsed(row.original.id)
                                 }}
                             >
                                 {row.getVisibleCells().map((cell) => (
