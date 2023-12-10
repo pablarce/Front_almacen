@@ -30,14 +30,16 @@ function App() {
             <Navbar dataFont={dataFont} setDataFont={setDataFont} className="flex items-center h-40" />
             <div
                 style={{ height: `${screenHeight - 160}px` }}
-                className={`grid grid-cols-2 gap-6 px-10 w-full pb-10`}
+                className={`grid grid-cols-3 gap-6 px-10 w-full pb-10`}
             >
                 <Articles
                     data={dataFont === "local" ? inventoryData : ""}
                     className="bg-gray-100 p-4 border-2 rounded-xl overflow-y-scroll"
                 />
-                <Product className="bg-gray-100 p-4 border-2 rounded-xl w-full" />
-                <Bill className="bg-gray-100 p-4 border-2 col-span-2 rounded-xl w-full h-full" />
+                <div className="col-span-2 grid grid-rows-3 gap-6">
+                    <Product className="bg-gray-100 p-4 row-span-2 border-2 rounded-xl w-full" />
+                    <Bill className="bg-gray-100 p-4 border-2 rounded-xl w-full h-full" />
+                </div>
             </div>
         </div>
     )
