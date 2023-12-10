@@ -14,6 +14,8 @@ function App() {
     const [dataFont, setDataFont] = useState<string>("local")
     const [idProductPulsed, setidProductPulsed] = useState<string>("")
 
+    const foundItem = inventoryData.find((item) => item.id === idProductPulsed)
+
     useEffect(() => {
         const handleResize = () => {
             setScreenHeight(window.innerHeight)
@@ -41,7 +43,10 @@ function App() {
                 />
                 <div className="col-span-2 grid grid-rows-3 gap-6">
                     <Product
-                        idProductPulsed={idProductPulsed}
+                        idProductPulsed={foundItem?.id}
+                        productName={foundItem?.product}
+                        productPrice={foundItem?.price}
+                        productStock={foundItem?.stock}
                         className="bg-gray-100 p-4 row-span-2 border-2 rounded-xl w-full"
                     />
                     <Bill className="bg-gray-100 p-4 border-2 rounded-xl w-full h-full" />

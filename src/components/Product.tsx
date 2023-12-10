@@ -1,14 +1,18 @@
 import { Dumbbell } from "lucide-react"
 
 interface ProductProps {
-    idProductPulsed: string
+    idProductPulsed: string | undefined
+    productName: string | undefined
+    productPrice: number | undefined
+    productStock: number | undefined
+    productDescription?: string | undefined
     className?: string
 }
 
 const Product = (props: ProductProps) => {
     return (
         <div className={`${props.className} overflow-clip p-6`}>
-            <p className="text-4xl">FOOTBALL</p>
+            <p className="text-4xl">{props.productName}</p>
             <div className="flex h-96 items-center">
                 <Dumbbell className="w-60 h-60" />
                 <div className="self-start pt-20 pl-10">
@@ -17,13 +21,13 @@ const Product = (props: ProductProps) => {
                         <p className="text-2xl">Stock</p>
                         <div className="w-60 border border-black"></div>
                     </div>
-                    <p className="py-8">Actualmente hay 46 uds.</p>
+                    <p className="py-8">Actualmente hay {props.productStock} uds.</p>
                     <div className="flex justify-center gap-2 items-center">
                         <div className="w-6 border border-black"></div>
                         <p className="text-2xl">Price</p>
                         <div className="w-60 border border-black"></div>
                     </div>
-                    <p className="py-8">Precio actual: €45.00.</p>
+                    <p className="py-8">Precio actual: €{props.productPrice}.</p>
                 </div>
                 <div className="self-start pt-20 pl-10 flex flex-col gap-2 ">
                     <p className="text-2xl">Descripcion del producto: </p>
