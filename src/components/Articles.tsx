@@ -11,7 +11,6 @@ import {
 } from "@tanstack/react-table"
 import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 
-import data from "../assets/data.json"
 import logo from "../assets/logo.svg"
 import { Button } from "../components/ui/button"
 import { Checkbox } from "../components/ui/checkbox"
@@ -26,10 +25,6 @@ import {
 import { Input } from "../components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table"
 
-interface ArticleProps {
-    className?: string
-}
-
 type Product = {
     id: string
     product: string
@@ -37,24 +32,33 @@ type Product = {
     price: number
 }
 
+interface ArticleProps {
+    data: Product[]
+    className?: string
+}
+
 const columns: ColumnDef<Product>[] = [
     {
         id: "select",
         header: ({ table }) => (
-            <Checkbox
-                checked={
-                    table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")
-                }
-                onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-                aria-label="Select all"
-            />
+            <div className="flex items-center justify-center">
+                <Checkbox
+                    checked={
+                        table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")
+                    }
+                    onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+                    aria-label="Select all"
+                />
+            </div>
         ),
         cell: ({ row }) => (
-            <Checkbox
-                checked={row.getIsSelected()}
-                onCheckedChange={(value) => row.toggleSelected(!!value)}
-                aria-label="Select row"
-            />
+            <div className="flex items-center justify-center">
+                <Checkbox
+                    checked={row.getIsSelected()}
+                    onCheckedChange={(value) => row.toggleSelected(!!value)}
+                    aria-label="Select row"
+                />
+            </div>
         ),
         enableSorting: false,
         enableHiding: false,
@@ -128,6 +132,7 @@ const columns: ColumnDef<Product>[] = [
 ]
 
 const Articles = (props: ArticleProps) => {
+    const data = props.data
     const [idProductPulsed, setidProductPulsed] = useState<string>("")
     const [sorting, setSorting] = useState<SortingState>([])
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])

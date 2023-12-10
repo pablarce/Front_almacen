@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import data from "src/assets/data.json"
+
+import inventoryData from "./assets/data"
 
 import "./App.css"
 
@@ -10,6 +11,7 @@ import Product from "./components/Product"
 
 function App() {
     const [screenHeight, setScreenHeight] = useState<number>(window.innerHeight)
+    const [dataFont, setDataFont] = useState<string>("local")
 
     useEffect(() => {
         const handleResize = () => {
@@ -25,12 +27,15 @@ function App() {
 
     return (
         <div className=" overflow-hidden">
-            <Navbar className="flex items-center h-40" />
+            <Navbar dataFont={dataFont} setDataFont={setDataFont} className="flex items-center h-40" />
             <div
                 style={{ height: `${screenHeight - 160}px` }}
                 className={`grid grid-cols-2 gap-6 px-10 w-full pb-10`}
             >
-                <Articles className="bg-gray-100 p-4 border-2 rounded-xl overflow-y-scroll" />
+                <Articles
+                    data={dataFont === "local" ? inventoryData : ""}
+                    className="bg-gray-100 p-4 border-2 rounded-xl overflow-y-scroll"
+                />
                 <Product className="bg-gray-100 p-4 border-2 rounded-xl w-full" />
                 <Bill className="bg-gray-100 p-4 border-2 col-span-2 rounded-xl w-full h-full" />
             </div>
