@@ -9,7 +9,7 @@ import {
     SortingState,
     useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, BadgePlus, MoreHorizontal, Trash2Icon } from "lucide-react"
+import { ArrowUpDown, MoreHorizontal, Trash2Icon } from "lucide-react"
 
 import logo from "../assets/logo.svg"
 import { Button } from "../components/ui/button"
@@ -24,12 +24,15 @@ import {
 } from "../components/ui/dropdown-menu"
 import { Input } from "../components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table"
+import CreateProduct from "./CreateProduct"
 
 type Product = {
     id: string
     product: string
     stock: number
     price: number
+    type: string
+    description: string
 }
 
 interface ArticleProps {
@@ -118,7 +121,7 @@ const columns: ColumnDef<Product>[] = [
                             <MoreHorizontal className="h-4 w-4" />
                         </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="relative z-10" align="end">
+                    <DropdownMenuContent className="relative bg-white" align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id)}>
                             Copy payment ID
@@ -164,9 +167,7 @@ const Articles = (props: ArticleProps) => {
                     onChange={(event) => table.getColumn("product")?.setFilterValue(event.target.value)}
                     className="max-w-sm rounded-xl border border-gray-400"
                 />
-                <div className="hover:cursor-pointer hover:bg-gray-200 p-2 rounded-xl ">
-                    <BadgePlus />
-                </div>
+                <CreateProduct />
                 <div className="hover:cursor-pointer hover:bg-gray-200 p-2 rounded-xl">
                     <Trash2Icon />
                 </div>
