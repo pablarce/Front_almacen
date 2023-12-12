@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod"
-import { BadgePlus } from "lucide-react"
+import { BadgePlus, PenIcon } from "lucide-react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
@@ -27,7 +27,12 @@ const FormSchema = z.object({
     description: z.string(),
 })
 
-const CreateProduct = () => {
+interface CreateProductProps {
+    className?: string
+    variant: string
+}
+
+const CreateProduct = (props: CreateProductProps) => {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
@@ -66,10 +71,16 @@ const CreateProduct = () => {
 
     return (
         <Dialog onOpenChange={() => form.reset()}>
-            <DialogTrigger>
-                <div className="hover:cursor-pointer hover:bg-gray-200 p-2 rounded-xl ">
-                    <BadgePlus />
-                </div>
+            <DialogTrigger className={`${props.className}`}>
+                {props.variant === "edit" ? (
+                    <div className="w-10 flex overflow-hidden  m-0 items-center justify-center bg-gray-800 text-gray-50 rounded-xl p-2">
+                        <PenIcon />
+                    </div>
+                ) : props.variant === "create" ? (
+                    <div className="hover:cursor-pointer hover:bg-gray-200 p-2 rounded-xl">
+                        <BadgePlus />
+                    </div>
+                ) : null}
             </DialogTrigger>
             <DialogContent className="bg-white p-8 rounded-lg">
                 <DialogHeader>

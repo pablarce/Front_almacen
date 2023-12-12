@@ -1,6 +1,7 @@
 import { Dumbbell } from "lucide-react"
 
 import logo from "../assets/logo.svg"
+import CreateProduct from "./CreateProduct"
 
 interface ProductProps {
     idProductPulsed: string | undefined
@@ -16,9 +17,12 @@ const Product = (props: ProductProps) => {
         <div className={`${props.className} overflow-clip p-6`}>
             {props.idProductPulsed != undefined ? (
                 <>
-                    <p className="text-4xl">{props.productName}</p>
+                    <div className="flex items-center">
+                        <p className="text-4xl">{props.productName}</p>
+                        <CreateProduct className="ml-auto" variant="edit" />
+                    </div>
                     <div className="flex h-96 items-center">
-                        <Dumbbell className="w-60 h-60" />
+                        <Dumbbell className="w-60 h-52" />
                         <div className="self-start pt-20 pl-10">
                             <div className="flex justify-center gap-2 items-center">
                                 <div className="w-6 border border-black"></div>

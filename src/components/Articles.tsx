@@ -9,7 +9,7 @@ import {
     SortingState,
     useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, MoreHorizontal, Trash2Icon } from "lucide-react"
+import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 
 import logo from "../assets/logo.svg"
 import { Button } from "../components/ui/button"
@@ -168,7 +168,7 @@ const Articles = (props: ArticleProps) => {
                     onChange={(event) => table.getColumn("product")?.setFilterValue(event.target.value)}
                     className="max-w-sm rounded-xl border border-gray-400"
                 />
-                <CreateProduct />
+                <CreateProduct variant="create" />
                 <DeleteProductAlert />
             </div>
             <Table>
