@@ -25,6 +25,7 @@ import {
 import { Input } from "../components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table"
 import CreateProduct from "./CreateProduct"
+import DeleteProductAlert from "./DeleteProductAlert"
 
 type Product = {
     id: string
@@ -168,9 +169,7 @@ const Articles = (props: ArticleProps) => {
                     className="max-w-sm rounded-xl border border-gray-400"
                 />
                 <CreateProduct />
-                <div className="hover:cursor-pointer hover:bg-gray-200 p-2 rounded-xl">
-                    <Trash2Icon />
-                </div>
+                <DeleteProductAlert />
             </div>
             <Table>
                 <TableHeader>

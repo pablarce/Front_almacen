@@ -107,7 +107,10 @@ const CreateProduct = () => {
                                             <FormItem>
                                                 <FormLabel>Tipo</FormLabel>
                                                 <FormControl>
-                                                    <Select>
+                                                    <Select
+                                                        onValueChange={field.onChange}
+                                                        defaultValue={field.value}
+                                                    >
                                                         <SelectTrigger className="w-[180px]">
                                                             <SelectValue placeholder="Seleccionar" />
                                                         </SelectTrigger>
@@ -136,7 +139,7 @@ const CreateProduct = () => {
                                             <FormItem>
                                                 <FormLabel>Stock</FormLabel>
                                                 <FormControl>
-                                                    <Input {...field} placeholder="40" />
+                                                    <Input {...field} placeholder="40 uds" />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -162,12 +165,16 @@ const CreateProduct = () => {
                             <div className="">
                                 <FormField
                                     control={form.control}
-                                    name="price"
+                                    name="description"
                                     render={({ field }) => (
-                                        <FormItem>
+                                        <FormItem className="flex flex-col pt-4">
                                             <FormLabel>Descripcion</FormLabel>
                                             <FormControl>
-                                                <Input {...field} placeholder="20.00" />
+                                                <textarea
+                                                    {...field}
+                                                    className="px-4 py-2 border border-black"
+                                                    placeholder="Descripción del producto ..."
+                                                ></textarea>
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
