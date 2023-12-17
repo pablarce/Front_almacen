@@ -4,7 +4,7 @@ const inventoryData = [
     product_name: "FOOTBALL",
     stock: 100,
     price: 36,
-    style: "sport",
+    type: "sport",
     description: "A ball used in the sport of football.",
   },
   {
@@ -12,7 +12,7 @@ const inventoryData = [
     product_name: "BASKETBALL",
     stock: 50,
     price: 25,
-    style: "sport",
+    type: "sport",
     description: "A ball used in the sport of basketball.",
   },
   {
@@ -20,7 +20,7 @@ const inventoryData = [
     product_name: "SOCCER BALL",
     stock: 75,
     price: 18,
-    style: "sport",
+    type: "sport",
     description: "A ball used in the sport of soccer.",
   },
   {
@@ -28,7 +28,7 @@ const inventoryData = [
     product_name: "TENNIS RACKET",
     stock: 120,
     price: 50,
-    style: "sport",
+    type: "sport",
     description: "A racket used in the sport of tennis.",
   },
   {
@@ -36,7 +36,7 @@ const inventoryData = [
     product_name: "RUNNING SHOES",
     stock: 200,
     price: 65,
-    style: "sport",
+    type: "sport",
     description: "Shoes designed for running.",
   },
   {
@@ -44,7 +44,7 @@ const inventoryData = [
     product_name: "GOLF CLUB",
     stock: 90,
     price: 75,
-    style: "sport",
+    type: "sport",
     description: "A club used in the sport of golf.",
   },
   {
@@ -52,7 +52,7 @@ const inventoryData = [
     product_name: "SWIMMING GOGGLES",
     stock: 30,
     price: 12,
-    style: "sport",
+    type: "sport",
     description: "Goggles used in the sport of swimming.",
   },
   {
@@ -60,7 +60,7 @@ const inventoryData = [
     product_name: "BASEBALL GLOVE",
     stock: 150,
     price: 40,
-    style: "sport",
+    type: "sport",
     description: "A glove used in the sport of baseball.",
   },
   {
@@ -68,7 +68,7 @@ const inventoryData = [
     product_name: "HIKING BOOTS",
     stock: 80,
     price: 55,
-    style: "sport",
+    type: "sport",
     description: "Boots designed for hiking.",
   },
   {
@@ -76,7 +76,7 @@ const inventoryData = [
     product_name: "CYCLING HELMET",
     stock: 110,
     price: 30,
-    style: "sport",
+    type: "sport",
     description: "A helmet used in the sport of cycling.",
   },
   {
@@ -84,7 +84,7 @@ const inventoryData = [
     product_name: "VOLLEYBALL",
     stock: 60,
     price: 28,
-    style: "sport",
+    type: "sport",
     description: "A ball used in the sport of volleyball.",
   },
   {
@@ -92,7 +92,7 @@ const inventoryData = [
     product_name: "SKI POLES",
     stock: 85,
     price: 42,
-    style: "sport",
+    type: "sport",
     description: "Poles used in the sport of skiing.",
   },
   {
@@ -100,7 +100,7 @@ const inventoryData = [
     product_name: "ROLLERBLADES",
     stock: 95,
     price: 60,
-    style: "sport",
+    type: "sport",
     description: "Rollerblades for inline skating.",
   },
   {
@@ -108,7 +108,7 @@ const inventoryData = [
     product_name: "YOGA MAT",
     stock: 130,
     price: 20,
-    style: "sport",
+    type: "sport",
     description: "A mat used in the practice of yoga.",
   },
   {
@@ -116,7 +116,7 @@ const inventoryData = [
     product_name: "PING PONG PADDLE",
     stock: 180,
     price: 15,
-    style: "sport",
+    type: "sport",
     description: "A paddle used in the sport of ping pong.",
   },
   {
@@ -124,7 +124,7 @@ const inventoryData = [
     product_name: "WEIGHT LIFTING GLOVES",
     stock: 70,
     price: 35,
-    style: "sport",
+    type: "sport",
     description: "Gloves used in weight lifting.",
   },
   {
@@ -132,7 +132,7 @@ const inventoryData = [
     product_name: "JUMP ROPE",
     stock: 40,
     price: 10,
-    style: "sport",
+    type: "sport",
     description: "A rope used in the activity of jumping rope.",
   },
   {
@@ -140,7 +140,7 @@ const inventoryData = [
     product_name: "SURFBOARD",
     stock: 120,
     price: 80,
-    style: "sport",
+    type: "sport",
     description: "A board used in the sport of surfing.",
   },
   {
@@ -148,7 +148,7 @@ const inventoryData = [
     product_name: "CLIMBING HARNESS",
     stock: 55,
     price: 50,
-    style: "sport",
+    type: "sport",
     description: "A harness used in the activity of climbing.",
   },
   {
@@ -156,7 +156,7 @@ const inventoryData = [
     product_name: "FOOTBALL HELMET",
     stock: 105,
     price: 45,
-    style: "sport",
+    type: "sport",
     description: "A helmet used in the sport of football.",
   },
 ];

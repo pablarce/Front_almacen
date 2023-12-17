@@ -17,7 +17,7 @@ function App() {
     const [dataFont, setDataFont] = useState<string>("local")
     const [idProductPulsed, setidProductPulsed] = useState<string>("")
 
-    const dataToRender = dataFont === "local" ? inventoryData : apiData
+    const dataToRender = dataFont === "local" ? inventoryData : apiData || []
     const foundItem = dataToRender.find((item) => item.id === idProductPulsed)
 
     useEffect(() => {
@@ -56,6 +56,7 @@ function App() {
                     <Product
                         idProductPulsed={foundItem?.id}
                         productName={foundItem?.product_name}
+                        productStyle={foundItem?.type}
                         productPrice={foundItem?.price}
                         productStock={foundItem?.stock}
                         productDescription={foundItem?.description}
