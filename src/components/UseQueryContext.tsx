@@ -1,29 +1,31 @@
 import { useQuery } from "react-query"
 
-interface Contact {
+type Product = {
     id: number
-    name: string
-    // Otras propiedades según la estructura de tus datos
+    product: string
+    type: string
+    stock: number
+    price: number
+    description: string
 }
-
-interface ContactData {
-    data: Contact[] | undefined
+interface ProductData {
+    data: Product[] | undefined
     error: Error | null
     isLoading: boolean
 }
 
-const ContactDataFetcher = (): ContactData => {
-    const fetchContacts = async (): Promise<Contact[]> => {
-        const response = await fetch("http://localhost:9433/api/contacts/")
+const ProductDataFetcher = (): ProductData => {
+    const fetchProducts = async (): Promise<Product[]> => {
+        const response = await fetch("https://localhost:44332/api/Products")
         const data = await response.json()
         return data
     }
 
     // Utilizar useQuery con la interfaz de datos de contacto
-    const { data, error, isLoading } = useQuery<Contact[], Error>("contacts", fetchContacts)
+    const { data, error, isLoading } = useQuery<Product[], Error>("products", fetchProducts)
 
     // Exportar una instancia de la interfaz
     return { data, error, isLoading }
 }
 
-export default ContactDataFetcher
+export default ProductDataFetcher
