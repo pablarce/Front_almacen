@@ -10,11 +10,12 @@ interface ProductProps {
     productStock: number | undefined
     productDescription?: string | undefined
     className?: string
+    style?: any
 }
 
 const Product = (props: ProductProps) => {
     return (
-        <div className={`${props.className} overflow-clip p-6`}>
+        <div className={`${props.className} overflow-clip p-6`} style={props.style}>
             {props.idProductPulsed != undefined ? (
                 <>
                     <div className="flex items-center">

@@ -22,8 +22,8 @@ type Product = {
 const FormSchema = z.object({
     product: z.string(),
     type: z.string(),
-    stock: z.number(),
-    price: z.number(),
+    stock: z.string(),
+    price: z.string(),
     description: z.string(),
 })
 
@@ -38,8 +38,8 @@ const CreateProduct = (props: CreateProductProps) => {
         defaultValues: {
             product: "",
             type: "",
-            stock: 0,
-            price: 0,
+            stock: "0",
+            price: "0",
             description: "",
         },
     })
@@ -56,8 +56,8 @@ const CreateProduct = (props: CreateProductProps) => {
                 id: generateRandomId(),
                 product: data.product,
                 type: data.type,
-                stock: data.stock,
-                price: data.price,
+                stock: parseInt(data.stock, 10),
+                price: parseFloat(data.price),
                 description: data.description,
             }
 
@@ -150,7 +150,7 @@ const CreateProduct = (props: CreateProductProps) => {
                                             <FormItem>
                                                 <FormLabel>Stock</FormLabel>
                                                 <FormControl>
-                                                    <Input {...field} placeholder="40 uds" />
+                                                    <Input type="number" {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -165,7 +165,7 @@ const CreateProduct = (props: CreateProductProps) => {
                                             <FormItem>
                                                 <FormLabel>Price</FormLabel>
                                                 <FormControl>
-                                                    <Input {...field} placeholder="20.00" />
+                                                    <Input type="number" {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>

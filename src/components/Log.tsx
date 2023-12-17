@@ -5,15 +5,21 @@ interface BillProps {
 }
 
 const Log = (props: BillProps) => {
-    const { data, error, isLoading } = ContactDataFetcher()
+    const { data, error } = ContactDataFetcher()
     console.log(data)
 
     return (
         <div className={`${props.className}`}>
-            <div>
-                <h1>Lista de contactos</h1>
-                <ul>{data?.map((contact) => <li key={contact.id}>{contact.name}</li>)}</ul>
-                <p>{isLoading}</p>
+            <h1 className="text-3xl">Log</h1>
+            <div className="mt-4 h-32 border border-black p-2 rounded-xl">
+                {error && (
+                    <>
+                        <p>
+                            {error.name} || {error.message}
+                        </p>
+                        <p>{error.stack}</p>
+                    </>
+                )}
             </div>
         </div>
     )
