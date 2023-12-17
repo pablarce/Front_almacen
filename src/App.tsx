@@ -63,7 +63,7 @@ function App() {
                         className="bg-gray-100 p-4 row-span-2 border-2 rounded-xl w-full"
                         // style={{ height: `${((screenHeight - 160) / 3) * 2}px` }}
                     />
-                    <Bill className="bg-gray-100 p-4 border-2 rounded-xl w-full h-full" />
+                    <Bill isLoading={isLoading} error={error} className="bg-gray-100 p-4 border-2 rounded-xl w-full h-full" />
                 </div>
             </div>
         </div>
