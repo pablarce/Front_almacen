@@ -1,12 +1,11 @@
-import ContactDataFetcher from "./UseQueryContext"
+import ProductDataFetcher from "./UseQueryContext"
 
 interface BillProps {
     className?: string
 }
 
 const Log = (props: BillProps) => {
-    const { data, error } = ContactDataFetcher()
-    console.log(data)
+    const { data, isLoading , error, loadData } = ProductDataFetcher()
 
     return (
         <div className={`${props.className}`}>

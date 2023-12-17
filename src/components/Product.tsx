@@ -41,10 +41,7 @@ const Product = (props: ProductProps) => {
                         <div className="self-start pt-20 pl-10 flex flex-col gap-2 ">
                             <p className="text-2xl">Descripcion del producto: </p>
                             <p className="w-[27rem]">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sapiente nostrum
-                                minus corrupti magnam tempora commodi consequuntur non repellendus voluptates
-                                inventore, rerum, eaque deleniti fuga atque labore molestias exercitationem
-                                praesentium!
+                                {props.productDescription}
                             </p>
                         </div>
                     </div>

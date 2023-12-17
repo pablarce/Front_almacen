@@ -29,7 +29,7 @@ import DeleteProductAlert from "./DeleteProductAlert"
 
 type Product = {
     id: string
-    product: string
+    product_name : string
     stock: number
     price: number
     type: string
@@ -39,7 +39,7 @@ type Product = {
 interface ArticleProps {
     idProductPulsed: string
     setIdProductPulsed: React.Dispatch<React.SetStateAction<string>>
-    data: Product[]
+    data: Product[] | undefined
     className?: string
 }
 
@@ -74,7 +74,7 @@ const columns: ColumnDef<Product>[] = [
         header: "Id",
     },
     {
-        accessorKey: "product",
+        accessorKey: "product_name",
         header: "Product",
     },
     {

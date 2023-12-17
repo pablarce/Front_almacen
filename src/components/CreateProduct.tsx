@@ -30,6 +30,7 @@ const FormSchema = z.object({
 interface CreateProductProps {
     className?: string
     variant: string
+    dataFont?: string
 }
 
 const CreateProduct = (props: CreateProductProps) => {
@@ -71,9 +72,9 @@ const CreateProduct = (props: CreateProductProps) => {
 
     return (
         <Dialog onOpenChange={() => form.reset()}>
-            <DialogTrigger className={`${props.className}`}>
+            <DialogTrigger disabled={false} className={`${props.className}`}>
                 {props.variant === "edit" ? (
-                    <div className="w-10 flex overflow-hidden  m-0 items-center justify-center bg-gray-800 text-gray-50 rounded-xl p-2">
+                    <div className="w-10 flex overflow-hidden m-0 items-center justify-center bg-gray-800 hover:bg-gray-700 text-gray-50 rounded-xl p-2">
                         <PenIcon />
                     </div>
                 ) : props.variant === "create" ? (

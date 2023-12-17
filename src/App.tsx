@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import ProductDataFetcher from "./components/UseQueryContext"
+
 
 import inventoryData from "./assets/data"
 
@@ -10,11 +12,19 @@ import Navbar from "./components/Navbar"
 import Product from "./components/Product"
 
 function App() {
+    const { data: apiData, isLoading , error, loadData } = ProductDataFetcher()
     const [screenHeight, setScreenHeight] = useState<number>(window.innerHeight)
     const [dataFont, setDataFont] = useState<string>("local")
     const [idProductPulsed, setidProductPulsed] = useState<string>("")
 
-    const foundItem = inventoryData.find((item) => item.id === idProductPulsed)
+    const dataToRender = dataFont === "local" ? inventoryData : apiData
+    const foundItem = dataToRender.find((item) => item.id === idProductPulsed)
+
+    useEffect(() => {
+        if (dataFont === "back") {
+            loadData()
+        }
+    }, [dataFont])
 
     useEffect(() => {
         const handleResize = () => {
@@ -28,6 +38,7 @@ function App() {
         }
     }, [screenHeight])
 
+
     return (
         <div className="bg-gray-900  overflow-hidden">
             <Navbar dataFont={dataFont} setDataFont={setDataFont} className="flex items-center h-40" />
@@ -38,15 +49,16 @@ function App() {
                 <Articles
                     idProductPulsed={idProductPulsed}
                     setIdProductPulsed={setidProductPulsed}
-                    data={dataFont === "local" ? inventoryData : ""}
+                    data={dataToRender}
                     className="bg-gray-100 p-4 border-2 rounded-xl overflow-y-scroll"
                 />
                 <div className="col-span-2 grid grid-rows-3 gap-6">
                     <Product
                         idProductPulsed={foundItem?.id}
-                        productName={foundItem?.product}
+                        productName={foundItem?.product_name}
                         productPrice={foundItem?.price}
                         productStock={foundItem?.stock}
+                        productDescription={foundItem?.description}
                         className="bg-gray-100 p-4 row-span-2 border-2 rounded-xl w-full"
                         // style={{ height: `${((screenHeight - 160) / 3) * 2}px` }}
                     />
