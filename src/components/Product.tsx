@@ -20,7 +20,7 @@ const getProductStyleIcon = (productStyle: string | undefined) => {
             return <Dumbbell className="w-60 h-52" />
         case "furniture":
             return <Armchair className="w-60 h-52" />
-        case "book":
+        case "books":
             return <BookCopy className="w-60 h-52" />
         case "electronic":
             return <Smartphone className="w-60 h-52" />
