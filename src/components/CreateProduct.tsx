@@ -11,15 +11,6 @@ import { Input } from "./ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
 import { useToast } from "./ui/use-toast"
 
-type Product = {
-    id: string
-    product_name: string
-    stock: number
-    price: number
-    type: string
-    description: string
-}
-
 type ProductToCreate = {
     product_name: string
     stock: number

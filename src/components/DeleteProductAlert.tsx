@@ -1,4 +1,5 @@
 import { Trash2Icon } from "lucide-react"
+import ProductDataFetcher from "./UseQueryContext"
 
 import {
     AlertDialog,
@@ -12,10 +13,21 @@ import {
     AlertDialogTrigger,
 } from "./ui/alert-dialog"
 
-const DeleteProductAlert = () => {
+interface DeleteProductAlertProps {
+    className?: string
+    idToDelete: number
+}
+
+const DeleteProductAlert = (props: DeleteProductAlertProps) => {
+
+    const { deleteProduct } = ProductDataFetcher()
+    const handleDeleteProduct = () => {
+        deleteProduct(props.idToDelete)
+    }
+
     return (
         <AlertDialog>
-            <AlertDialogTrigger asChild>
+            <AlertDialogTrigger disabled={props.idToDelete == 0} asChild>
                 <div className="hover:cursor-pointer hover:bg-gray-200 p-2 rounded-xl">
                     <Trash2Icon />
                 </div>
@@ -30,7 +42,7 @@ const DeleteProductAlert = () => {
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                     <AlertDialogCancel className="border border-gray-200">Cancelar</AlertDialogCancel>
-                    <AlertDialogAction className="border">Continuar</AlertDialogAction>
+                    <AlertDialogAction onClick={handleDeleteProduct} className="border">Continuar</AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>

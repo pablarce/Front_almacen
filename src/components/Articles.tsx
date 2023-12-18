@@ -173,7 +173,7 @@ const Articles = (props: ArticleProps) => {
                     className="max-w-sm rounded-xl border border-gray-400"
                 />
                 <CreateProduct variant="create" />
-                <DeleteProductAlert />
+                <DeleteProductAlert idToDelete={props.idProductPulsed}/>
             </div>
             <Table>
                 <TableHeader>
