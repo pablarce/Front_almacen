@@ -1,6 +1,6 @@
 const inventoryData = [
   {
-    id: "D074",
+    id: 1,
     product_name: "FOOTBALL",
     stock: 100,
     price: 36,
@@ -8,7 +8,7 @@ const inventoryData = [
     description: "A ball used in the sport of football.",
   },
   {
-    id: "A123",
+    id: 2,
     product_name: "BASKETBALL",
     stock: 50,
     price: 25,
@@ -16,7 +16,7 @@ const inventoryData = [
     description: "A ball used in the sport of basketball.",
   },
   {
-    id: "B456",
+    id: 3,
     product_name: "SOCCER BALL",
     stock: 75,
     price: 18,
@@ -24,7 +24,7 @@ const inventoryData = [
     description: "A ball used in the sport of soccer.",
   },
   {
-    id: "C789",
+    id: 4,
     product_name: "TENNIS RACKET",
     stock: 120,
     price: 50,
@@ -32,7 +32,7 @@ const inventoryData = [
     description: "A racket used in the sport of tennis.",
   },
   {
-    id: "E012",
+    id: 5,
     product_name: "RUNNING SHOES",
     stock: 200,
     price: 65,
@@ -40,7 +40,7 @@ const inventoryData = [
     description: "Shoes designed for running.",
   },
   {
-    id: "F345",
+    id: 6,
     product_name: "GOLF CLUB",
     stock: 90,
     price: 75,
@@ -48,7 +48,7 @@ const inventoryData = [
     description: "A club used in the sport of golf.",
   },
   {
-    id: "G678",
+    id: 7,
     product_name: "SWIMMING GOGGLES",
     stock: 30,
     price: 12,
@@ -56,7 +56,7 @@ const inventoryData = [
     description: "Goggles used in the sport of swimming.",
   },
   {
-    id: "H901",
+    id: 8,
     product_name: "BASEBALL GLOVE",
     stock: 150,
     price: 40,
@@ -64,7 +64,7 @@ const inventoryData = [
     description: "A glove used in the sport of baseball.",
   },
   {
-    id: "I234",
+    id: 9,
     product_name: "HIKING BOOTS",
     stock: 80,
     price: 55,
@@ -72,7 +72,7 @@ const inventoryData = [
     description: "Boots designed for hiking.",
   },
   {
-    id: "J567",
+    id: 10,
     product_name: "CYCLING HELMET",
     stock: 110,
     price: 30,
@@ -80,7 +80,7 @@ const inventoryData = [
     description: "A helmet used in the sport of cycling.",
   },
   {
-    id: "K890",
+    id: 11,
     product_name: "VOLLEYBALL",
     stock: 60,
     price: 28,
@@ -88,7 +88,7 @@ const inventoryData = [
     description: "A ball used in the sport of volleyball.",
   },
   {
-    id: "L123",
+    id: 12,
     product_name: "SKI POLES",
     stock: 85,
     price: 42,
@@ -96,7 +96,7 @@ const inventoryData = [
     description: "Poles used in the sport of skiing.",
   },
   {
-    id: "M456",
+    id: 13,
     product_name: "ROLLERBLADES",
     stock: 95,
     price: 60,
@@ -104,7 +104,7 @@ const inventoryData = [
     description: "Rollerblades for inline skating.",
   },
   {
-    id: "N789",
+    id: 14,
     product_name: "YOGA MAT",
     stock: 130,
     price: 20,
@@ -112,7 +112,7 @@ const inventoryData = [
     description: "A mat used in the practice of yoga.",
   },
   {
-    id: "O012",
+    id: 15,
     product_name: "PING PONG PADDLE",
     stock: 180,
     price: 15,
@@ -120,7 +120,7 @@ const inventoryData = [
     description: "A paddle used in the sport of ping pong.",
   },
   {
-    id: "P345",
+    id: 16,
     product_name: "WEIGHT LIFTING GLOVES",
     stock: 70,
     price: 35,
@@ -128,7 +128,7 @@ const inventoryData = [
     description: "Gloves used in weight lifting.",
   },
   {
-    id: "Q678",
+    id: 17,
     product_name: "JUMP ROPE",
     stock: 40,
     price: 10,
@@ -136,7 +136,7 @@ const inventoryData = [
     description: "A rope used in the activity of jumping rope.",
   },
   {
-    id: "R901",
+    id: 18,
     product_name: "SURFBOARD",
     stock: 120,
     price: 80,
@@ -144,7 +144,7 @@ const inventoryData = [
     description: "A board used in the sport of surfing.",
   },
   {
-    id: "S234",
+    id: 19,
     product_name: "CLIMBING HARNESS",
     stock: 55,
     price: 50,
@@ -152,7 +152,7 @@ const inventoryData = [
     description: "A harness used in the activity of climbing.",
   },
   {
-    id: "T567",
+    id: 20,
     product_name: "FOOTBALL HELMET",
     stock: 105,
     price: 45,

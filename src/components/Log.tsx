@@ -1,3 +1,5 @@
+import {Loader2, BadgeCheck} from "lucide-react"
+
 interface BillProps {
     className?: string
     isLoading: boolean
@@ -8,9 +10,12 @@ const Log = (props: BillProps) => {
 
     return (
         <div className={`${props.className}`}>
-            <h1 className="text-3xl">Log</h1>
+            <div className="flex items-center">
+                <h1 className="text-3xl">Log</h1>
+                <div className="ml-auto"></div>
+                {props.isLoading ? <div className="flex gap-1"><Loader2 className="animate-spin"/><p>Loading...</p></div> : <BadgeCheck className=" text-green-800"/>}
+            </div>
             <div className="mt-4 h-32 border border-black p-2 rounded-xl">
-                {props.isLoading ? <p>Loading...</p> : <p>not loading</p>}
                 {props.error && (
                     <>
                         <p>

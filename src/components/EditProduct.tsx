@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod"
-import { BadgePlus, PenIcon } from "lucide-react"
+import { PenIcon } from "lucide-react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
@@ -12,15 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { useToast } from "./ui/use-toast"
 
 type Product = {
-    id: string
-    product_name: string
-    stock: number
-    price: number
-    type: string
-    description: string
-}
-
-type ProductToCreate = {
+    id: number
     product_name: string
     stock: number
     price: number
@@ -38,29 +30,35 @@ const FormSchema = z.object({
 
 interface CreateProductProps {
     className?: string
-    variant: string
     dataFont?: string
+    id: number
+    given_product_name?: string
+    given_stock?: number
+    given_price?: number
+    given_type?: string
+    given_description?: string
 }
 
 const CreateProduct = (props: CreateProductProps) => {
     const { toast } = useToast()
-    const { addProduct } = ProductDataFetcher()
+    const { updateProduct } = ProductDataFetcher()
 
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
-            product_name: "",
-            type: "",
-            stock: "0",
-            price: "0",
-            description: "",
+            product_name: props.given_product_name,
+            type: props.given_type,
+            stock: props.given_stock?.toString(),
+            price: props.given_price?.toString(),
+            description: props.given_description,
         },
     })
 
 
     const handleCreateProduct = () => {
         form.handleSubmit((data) => {
-            const newProduct: ProductToCreate = {
+            const newProduct: Product = {
+                id: props.id,
                 product_name: data.product_name,
                 type: data.type,
                 stock: parseInt(data.stock, 10),
@@ -68,9 +66,9 @@ const CreateProduct = (props: CreateProductProps) => {
                 description: data.description,
             }
 
-            addProduct(newProduct)
+            updateProduct(props.id, newProduct)
             toast({
-                title: "Has creado el producto " + data.product_name,
+                title: "Has editado el producto " + data.product_name,
                 description: "Friday, February 10, 2023 at 5:57 PM",
             });
 
@@ -78,30 +76,22 @@ const CreateProduct = (props: CreateProductProps) => {
         })()
     }
 
-
-
     return (
         <Dialog onOpenChange={() => form.reset()}>
             <DialogTrigger disabled={false} className={`${props.className}`}>
-                {props.variant === "edit" ? (
-                    <div className="w-10 flex overflow-hidden m-0 items-center justify-center bg-gray-800 hover:bg-gray-700 text-gray-50 rounded-xl p-2">
-                        <PenIcon />
-                    </div>
-                ) : props.variant === "create" ? (
-                    <div className="hover:cursor-pointer hover:bg-gray-200 p-2 rounded-xl">
-                        <BadgePlus />
-                    </div>
-                ) : null}
+                <div className="w-10 flex overflow-hidden m-0 items-center justify-center bg-gray-800 hover:bg-gray-700 text-gray-50 rounded-xl p-2">
+                    <PenIcon />
+                </div>
             </DialogTrigger>
             <DialogContent className="bg-white p-8 rounded-lg">
                 <DialogHeader>
                     <div className="flex justify-center gap-2 items-center">
                         <div className="w-6 border border-black"></div>
-                        <DialogTitle className="text-xl">Crear un producto</DialogTitle>
+                        <DialogTitle className="text-xl">Editar un producto</DialogTitle>
                         <div className="w-60 border border-black"></div>
                     </div>
                     <DialogDescription className="py-2">
-                        Crea aqui un producto nuevo para tu almacen.
+                        Edita aqui tus {props.given_product_name}, retira unidades o cambia el precio
                     </DialogDescription>
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(handleCreateProduct)} className="">
@@ -209,7 +199,7 @@ const CreateProduct = (props: CreateProductProps) => {
                                 className=" hover:bg-gray-50 w-fit p-2 text-md hover:cursor-pointer rounded-xl border border-black"
                                 type="submit"
                             >
-                                Crear Producto
+                                Editar producto
                             </Button>
                         </form>
                     </Form>

@@ -1,10 +1,10 @@
-import { Dumbbell, BookCopy, Armchair, FileQuestion} from "lucide-react"
+import { Dumbbell, BookCopy, Armchair, FileQuestion, Smartphone} from "lucide-react"
 
 import logo from "../assets/logo.svg"
-import CreateProduct from "./CreateProduct"
+import EditProduct from "./EditProduct"
 
 interface ProductProps {
-    idProductPulsed: string | undefined
+    idProductPulsed: number | undefined
     productName: string | undefined
     productStyle: string | undefined
     productPrice: number | undefined
@@ -22,6 +22,8 @@ const getProductStyleIcon = (productStyle: string | undefined) => {
             return <Armchair className="w-60 h-52" />
         case "book":
             return <BookCopy className="w-60 h-52" />
+        case "electronic":
+            return <Smartphone className="w-60 h-52" />
         default:
             return <FileQuestion className="w-60 h-52" />
     }
@@ -34,7 +36,7 @@ const Product = (props: ProductProps) => {
                 <>
                     <div className="flex items-center">
                         <p className="text-4xl">{props.productName}</p>
-                        <CreateProduct className="ml-auto" variant="edit" />
+                        <EditProduct className="ml-auto" id={props.idProductPulsed} given_product_name={props.productName} given_type={props.productStyle} given_price={props.productPrice} given_stock={props.productStock} given_description={props.productDescription}/>
                     </div>
                     <div className="flex h-96 items-center">
                         {getProductStyleIcon(props.productStyle)}

@@ -12,10 +12,10 @@ import Navbar from "./components/Navbar"
 import Product from "./components/Product"
 
 function App() {
-    const { data: apiData, isLoading , error, loadData } = ProductDataFetcher()
+    const { data: apiData, isLoading , error, loadData} = ProductDataFetcher()
     const [screenHeight, setScreenHeight] = useState<number>(window.innerHeight)
     const [dataFont, setDataFont] = useState<string>("local")
-    const [idProductPulsed, setidProductPulsed] = useState<string>("")
+    const [idProductPulsed, setidProductPulsed] = useState<number>(0)
 
     const dataToRender = dataFont === "local" ? inventoryData : apiData || []
     const foundItem = dataToRender.find((item) => item.id === idProductPulsed)

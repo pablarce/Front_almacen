@@ -28,7 +28,7 @@ import CreateProduct from "./CreateProduct"
 import DeleteProductAlert from "./DeleteProductAlert"
 
 type Product = {
-    id: string
+    id: number
     product_name : string
     stock: number
     price: number
@@ -37,8 +37,8 @@ type Product = {
 }
 
 interface ArticleProps {
-    idProductPulsed: string
-    setIdProductPulsed: React.Dispatch<React.SetStateAction<string>>
+    idProductPulsed: number
+    setIdProductPulsed: React.Dispatch<React.SetStateAction<number>>
     data: Product[] | undefined
     className?: string
 }
@@ -112,7 +112,7 @@ const columns: ColumnDef<Product>[] = [
     {
         id: "actions",
         cell: ({ row }) => {
-            const payment = row.original
+            const product = row.original
 
             return (
                 <DropdownMenu>
@@ -124,12 +124,16 @@ const columns: ColumnDef<Product>[] = [
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="relative bg-white" align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id)}>
-                            Copy payment ID
+                        <DropdownMenuItem onClick={() => navigator.clipboard.writeText(product.id.toString())}>
+                            Copy product ID
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>View customer</DropdownMenuItem>
-                        <DropdownMenuItem>View payment details</DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => navigator.clipboard.writeText(product.stock.toString())}>
+                            Copy product stock
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => navigator.clipboard.writeText(product.price.toString())}>
+                            Copy product price
+                        </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             )
@@ -164,8 +168,8 @@ const Articles = (props: ArticleProps) => {
             <div className="flex items-center gap-8 py-4">
                 <Input
                     placeholder="Filter products..."
-                    value={(table.getColumn("product")?.getFilterValue() as string) ?? ""}
-                    onChange={(event) => table.getColumn("product")?.setFilterValue(event.target.value)}
+                    value={(table.getColumn("product_name")?.getFilterValue() as string) ?? ""}
+                    onChange={(event) => table.getColumn("product_name")?.setFilterValue(event.target.value)}
                     className="max-w-sm rounded-xl border border-gray-400"
                 />
                 <CreateProduct variant="create" />
