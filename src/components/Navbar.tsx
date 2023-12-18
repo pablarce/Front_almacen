@@ -10,7 +10,14 @@ interface NavbarProps {
 const Navbar = (props: NavbarProps) => {
     return (
         <div className={`${props.className} gap-4 px-10 pt-6`}>
+                        
             <img width="400px" src={logo} alt="" />
+            <div className="w-full absolute flex items-center justify-center">
+                <div className="flex items-center justify-center w-64 self-center align-middle bg-gray-700 h-14 rounded-xl border border-gray-50 text-gray-50">
+                    <p className="text-xl">500,45 €</p>
+                </div>
+            </div>
+
             <div className="ml-auto"></div>
             <div className="flex items-center justify-center h-14 w-28 rounded-xl border text-lg cursor-pointer hover:bg-gray-700">
                 <p className="text-white">Login</p>

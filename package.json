@@ -27,6 +27,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.0",
     "react-query": "^3.39.3",
+    "react-router-dom": "^6.21.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.4"
@@ -56,5 +57,4 @@
     "vite": "^5.0.10"
   },
   "proxy": "https://localhost:44332"
-  
 }
