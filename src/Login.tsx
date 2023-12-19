@@ -27,10 +27,10 @@ const Login = (props:LoginProps) => {
         e.preventDefault();
         try {
             setLoading(true)
-            await new Promise(resolve => setTimeout(resolve, 1000));
             const token = await authenticateUser({ username, password });
+            props.setClient(getUserByToken(token))
+            await new Promise(resolve => setTimeout(resolve, 1000));
             console.log("Authentication successful. Token:", token);
-            props.setClient(getUserByToken(token).result)
             await new Promise(resolve => setTimeout(resolve, 300));
             navigate("/gestion");
         } catch (error : any) {

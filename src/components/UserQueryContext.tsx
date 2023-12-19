@@ -65,10 +65,11 @@ const getUserByToken = async (token: string): Promise<User> => {
     throw new Error("User not found");
   }
 
-  const result: User = await response.json(); // Espera a que se resuelva la promesa JSON
+  const result: User = await response.json(); 
 
   return result;
-};
+  };
+
 
   return { authenticateUser, registerUser, getUserByToken };
 };

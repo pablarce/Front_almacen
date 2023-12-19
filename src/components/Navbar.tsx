@@ -14,7 +14,6 @@ interface NavbarProps {
 }
 
 const Navbar = (props: NavbarProps) => {
-    console.log(props.client)
     return (
         <div className={`${props.className} gap-4 px-10 pt-6`}>
                         
