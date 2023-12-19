@@ -31,7 +31,7 @@ const getProductStyleIcon = (productStyle: string | undefined) => {
 
 const Product = (props: ProductProps) => {
     return (
-        <div className={`${props.className} overflow-scroll p-6 `} style={props.style}>
+        <div className={`${props.className} p-6 `} style={props.style}>
             {props.idProductPulsed != undefined ? (
                 <>
                     <div className="flex items-center">

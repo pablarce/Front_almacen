@@ -69,8 +69,6 @@ const CreateProduct = (props: CreateProductProps) => {
         })()
     }
 
-
-
     return (
         <Dialog onOpenChange={() => form.reset()}>
             <DialogTrigger disabled={false} className={`${props.className}`}>

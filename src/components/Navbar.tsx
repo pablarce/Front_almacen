@@ -12,7 +12,7 @@ const Navbar = (props: NavbarProps) => {
         <div className={`${props.className} gap-4 px-10 pt-6`}>
                         
             <img width="400px" src={logo} alt="" />
-            <div className="w-full absolute flex items-center justify-center">
+            <div className="w-full absolute flex items-center justify-center -z-1">
                 <div className="flex items-center justify-center w-64 self-center align-middle bg-gray-700 h-14 rounded-xl border border-gray-50 text-gray-50">
                     <p className="text-xl">500,45 €</p>
                 </div>

@@ -22,3 +22,8 @@
     border-radius: 100vw;
     background: #a5a8aa;
   }
+
+  .bg-gradient{
+    background: rgb(17,24,39);
+    background: linear-gradient(90deg, rgba(17,24,39,1) 0%, rgba(31,41,55,1) 100%);
+  }
