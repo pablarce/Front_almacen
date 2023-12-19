@@ -17,7 +17,7 @@ const Login = (props:LoginProps) => {
     const screenHeight = "100vh"; // Puedes ajustar la altura según tus necesidades
     const navigate = useNavigate();
     const { toast } = useToast()
-    const {authenticateUser, getUserById, registerUser} = UserDataFetcher()
+    const {authenticateUser, getUserByToken, registerUser} = UserDataFetcher()
 
     const [loading, setLoading] = useState(false);
     const [username, setUsername] = useState("");
@@ -30,7 +30,8 @@ const Login = (props:LoginProps) => {
             await new Promise(resolve => setTimeout(resolve, 1000));
             const token = await authenticateUser({ username, password });
             console.log("Authentication successful. Token:", token);
-            props.setClient(token)
+            props.setClient(getUserByToken(token).result)
+            await new Promise(resolve => setTimeout(resolve, 300));
             navigate("/gestion");
         } catch (error : any) {
             toast({

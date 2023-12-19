@@ -13,7 +13,6 @@ interface Client {
 
 function App() {
     const [client, setClient] = useState<Client | undefined>(undefined)
-
     return (
         <div className='bg-gray-900 overflow-hidden'>
             

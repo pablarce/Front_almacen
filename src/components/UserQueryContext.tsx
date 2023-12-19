@@ -12,7 +12,7 @@ type User = {
 };
 
 interface UserData {
-  getUserById: (id: number) => Promise<User>;
+  getUserByToken: (token: string) => Promise<User>;
   authenticateUser: (userToAuth: UserAtributes) => Promise<string>;
   registerUser: (userToAuth: UserAtributes) => Promise<string>;
 }
@@ -56,19 +56,21 @@ const UserDataFetcher = (): UserData => {
     return response.json();
   };
 
-  const getUserById = async (id: number): Promise<User> => {
-    const response = await fetch(
-      `https://localhost:44332/api/Users/${id}`
-    );
+const getUserByToken = async (token: string): Promise<User> => {
+  const response = await fetch(
+    `https://localhost:44332/api/Users/GetUserByToken?token=${token}`
+  );
 
-    if (!response.ok) {
-      throw new Error("User not found");
-    }
+  if (!response.ok) {
+    throw new Error("User not found");
+  }
 
-    return response.json();
-  };
+  const result: User = await response.json(); // Espera a que se resuelva la promesa JSON
 
-  return { authenticateUser, registerUser, getUserById };
+  return result;
+};
+
+  return { authenticateUser, registerUser, getUserByToken };
 };
 
 export default UserDataFetcher;

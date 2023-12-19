@@ -15,7 +15,7 @@ interface GestionProps{
     } | undefined
 }
 
-const Gestion = (props : GestionProps) => {
+const Gestion = (props: GestionProps) => {
     const { data: apiData, isLoading, error, loadData } = ProductDataFetcher()
     const [screenHeight, setScreenHeight] = useState<number>(window.innerHeight)
     const [dataFont, setDataFont] = useState<string>("local")
