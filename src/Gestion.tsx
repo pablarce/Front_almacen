@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react"
 import ProductDataFetcher from "./components/PrductQueryContext"
 
-
 import inventoryData from "./assets/data"
 import Articles from "./components/Articles"
 import Bill from "./components/Log"
 import Navbar from "./components/Navbar"
 import Product from "./components/Product"
 
-const Gestion = () => {
+interface GestionProps{
+    client: {
+        username: string
+        wallet: number
+        type: string
+    } | undefined
+}
+
+const Gestion = (props : GestionProps) => {
     const { data: apiData, isLoading, error, loadData } = ProductDataFetcher()
     const [screenHeight, setScreenHeight] = useState<number>(window.innerHeight)
     const [dataFont, setDataFont] = useState<string>("local")
@@ -38,7 +45,7 @@ const Gestion = () => {
 
     return (
         <div className="overflow-hidden">
-            <Navbar dataFont={dataFont} setDataFont={setDataFont} className="flex items-center h-40" />
+            <Navbar client={props.client} dataFont={dataFont} setDataFont={setDataFont} className="flex items-center h-40" />
             <div
                 style={{ height: `${screenHeight - 160}px` }}
                 className={`grid grid-cols-3 gap-6 px-10 w-full pb-10`}

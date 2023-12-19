@@ -7,45 +7,58 @@ import { useForm } from "react-hook-form"
 import { Form, FormControl, FormItem } from "./components/ui/form";
 import UserDataFetcher from "./components/UserQueryContext"
 import { useToast } from "./components/ui/use-toast"
+import { Loader2 } from 'lucide-react';
 
+interface LoginProps{
+    setClient: any
+}
 
-const Login = () => {
+const Login = (props:LoginProps) => {
     const screenHeight = "100vh"; // Puedes ajustar la altura según tus necesidades
     const navigate = useNavigate();
     const { toast } = useToast()
     const {authenticateUser, getUserById, registerUser} = UserDataFetcher()
 
+    const [loading, setLoading] = useState(false);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-          const token = await authenticateUser({ username, password });
-          console.log("Authentication successful. Token:", token);
-          navigate("/gestion");
+            setLoading(true)
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const token = await authenticateUser({ username, password });
+            console.log("Authentication successful. Token:", token);
+            props.setClient(token)
+            navigate("/gestion");
         } catch (error : any) {
             toast({
                 title: error.message,
                 description: "Username might not exist or password is incorrect",
             });
         }
+        setLoading(false)
     };
 
     const handleRegister = async () => {
         try {
-          const result = await registerUser({ username, password });
-          console.log("Registration successful. Result:", result);
-          navigate("/gestion");
-        } catch (error: any) {
+            setLoading(true)
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const result = await registerUser({ username, password });
+            console.log("Registration successful. Result:", result);
+            navigate("/gestion");
+        } catch (error:any) {
             toast({
-              title: "Registration failed",
-              description: error.message || "An error occurred during registration",
-              status: "error",
+                title: "Registration failed",
+                description: error.message, 
+                status: "error",
             });
         }
+        setLoading(false)
     };
-    
+
+
     const form = useForm()
 
     return (
@@ -79,8 +92,9 @@ const Login = () => {
                                     />
                                 </FormControl>
                             </FormItem>
-                            <Button type='submit' className="flex items-center justify-center h-10 w-full rounded-xl    border text-lg cursor-pointer bg-gray-900 hover:bg-gray-700">
+                            <Button type='submit' className="flex items-center justify-center h-10 w-full rounded-xl  border text-lg cursor-pointer gap-3 bg-gray-900 hover:bg-gray-700 duration-300">
                                 <p className="text-white">Login</p>
+                                {loading ? <Loader2 className="animate-spin text-white"/> : null}
                             </Button>
                         </div>
                     </form>
