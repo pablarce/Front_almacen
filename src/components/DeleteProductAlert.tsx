@@ -1,5 +1,5 @@
 import { Trash2Icon } from "lucide-react"
-import ProductDataFetcher from "./UseQueryContext"
+import ProductDataFetcher from "./PrductQueryContext"
 
 import {
     AlertDialog,

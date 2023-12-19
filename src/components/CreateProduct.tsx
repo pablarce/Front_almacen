@@ -3,7 +3,7 @@ import { BadgePlus, PenIcon } from "lucide-react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
-import ProductDataFetcher from "./UseQueryContext"
+import ProductDataFetcher from "./PrductQueryContext"
 import { Button } from "./ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
@@ -68,8 +68,6 @@ const CreateProduct = (props: CreateProductProps) => {
             form.reset()
         })()
     }
-
-
 
     return (
         <Dialog onOpenChange={() => form.reset()}>

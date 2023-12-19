@@ -31,7 +31,7 @@ const getProductStyleIcon = (productStyle: string | undefined) => {
 
 const Product = (props: ProductProps) => {
     return (
-        <div className={`${props.className} overflow-scroll p-6 `} style={props.style}>
+        <div className={`${props.className} p-6 `} style={props.style}>
             {props.idProductPulsed != undefined ? (
                 <>
                     <div className="flex items-center">
@@ -54,7 +54,7 @@ const Product = (props: ProductProps) => {
                             </div>
                             <p className="py-8">Precio actual: €{props.productPrice}.</p>
                         </div>
-                        <div className="self-start pt-20 pl-10 flex flex-col gap-2 ">
+                        <div className="relative self-start pt-20 pl-10 flex flex-col gap-2 ">
                             <p className="text-2xl">Descripcion del producto: </p>
                             <p className="w-[27rem]">
                                 {props.productDescription}
