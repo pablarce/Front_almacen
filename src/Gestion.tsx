@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import ProductDataFetcher from "./components/UseQueryContext"
+import ProductDataFetcher from "./components/PrductQueryContext"
 
 
 import inventoryData from "./assets/data"
@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar"
 import Product from "./components/Product"
 
 const Gestion = () => {
-    const { data: apiData, isLoading , error, loadData} = ProductDataFetcher()
+    const { data: apiData, isLoading, error, loadData } = ProductDataFetcher()
     const [screenHeight, setScreenHeight] = useState<number>(window.innerHeight)
     const [dataFont, setDataFont] = useState<string>("local")
     const [idProductPulsed, setidProductPulsed] = useState<number>(0)

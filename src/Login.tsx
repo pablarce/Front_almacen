@@ -5,25 +5,47 @@ import { Input } from "./components/ui/input";
 import { Button } from "./components/ui/button";
 import { useForm } from "react-hook-form"
 import { Form, FormControl, FormItem } from "./components/ui/form";
+import UserDataFetcher from "./components/UserQueryContext"
+import { useToast } from "./components/ui/use-toast"
+
 
 const Login = () => {
     const screenHeight = "100vh"; // Puedes ajustar la altura según tus necesidades
     const navigate = useNavigate();
-    
+    const { toast } = useToast()
+    const {authenticateUser, getUserById, registerUser} = UserDataFetcher()
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(username, password);
-        navigate("/gestion");
+        try {
+          const token = await authenticateUser({ username, password });
+          console.log("Authentication successful. Token:", token);
+          navigate("/gestion");
+        } catch (error : any) {
+            toast({
+                title: error.message,
+                description: "Username might not exist or password is incorrect",
+            });
+        }
     };
 
-    const handleRegister = () => {
-        console.log(username, password);
-        navigate("/gestion");
+    const handleRegister = async () => {
+        try {
+          const result = await registerUser({ username, password });
+          console.log("Registration successful. Result:", result);
+          navigate("/gestion");
+        } catch (error: any) {
+            toast({
+              title: "Registration failed",
+              description: error.message || "An error occurred during registration",
+              status: "error",
+            });
+        }
     };
-
+    
     const form = useForm()
 
     return (

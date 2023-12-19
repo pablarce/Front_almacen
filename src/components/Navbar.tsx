@@ -1,5 +1,6 @@
 import logo from "../assets/full_logo.svg"
 import SwitchButton from "./SwitchButton"
+import { Wallet } from "lucide-react"
 
 interface NavbarProps {
     dataFont: string
@@ -13,7 +14,8 @@ const Navbar = (props: NavbarProps) => {
                         
             <img width="400px" src={logo} alt="" />
             <div className="w-full absolute flex items-center justify-center -z-1">
-                <div className="flex items-center justify-center w-64 self-center align-middle bg-gray-700 h-14 rounded-xl border border-gray-50 text-gray-50">
+                <div className="flex items-center justify-center w-64 self-center align-middle bg-gray-700 h-14 rounded-xl border border-gray-50 text-gray-50 gap-4">
+                    <Wallet/>
                     <p className="text-xl">500,45 €</p>
                 </div>
             </div>
